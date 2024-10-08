@@ -168,7 +168,7 @@ Capitalize Every first Letter of each word in a String
 =====================================================*/
 
 /* 
-array-looping-tasks
+
 Task 1
 Write a JavaScript code to reverse the array colors without using the reverse method.
 
@@ -178,7 +178,25 @@ Output:
 
 ['orange', 'yellow', 'green', 'blue', 'red']
 */
-
+{
+  // Using for of loop
+  const colors = ["red", "blue", "green", "yellow", "orange"];
+  let reversed = [];
+  for (let color of colors) {
+    console.log(color);
+    reversed.unshift(color); // Using unshift() method
+  }
+  console.log(reversed);
+}
+{
+  // Using for loop
+  const colors = ["red", "blue", "green", "yellow", "orange"];
+  let reversed = [];
+  for (let i = colors.length - 1; i >= 0; i--) {
+    reversed.push(colors[i]);
+  }
+  console.log(reversed);
+}
 /*
 Task 2
 Write a JavaScript code to get the even numbers from an array using any looping technique.
