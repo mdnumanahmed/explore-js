@@ -251,3 +251,16 @@ Output:
 'person working hard a am I'
 
 */
+{
+  // Using split(), reverse() and join() method
+  const statement = "I am a hard working person";
+  let reversed = statement.split(" ").reverse().join(" ");
+  console.log(reversed);
+
+  let revStat = "";
+  // Using loop
+  for (let word of statement.split(" ")) {
+    revStat = word + " " + revStat;
+  }
+  console.log(revStat);
+}
