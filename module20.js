@@ -63,3 +63,15 @@ Write a function called count_zero() which will take a binary string (Binary str
 Task-5
 Write a function called odd_even() which takes an integer value and tells whether this value is even or odd. If even return Even. If odd return Odd
  */
+{
+  const number = 8;
+  function oddEven(num) {
+    if (num % 2 === 0) {
+      return "Even";
+    } else {
+      return "Odd";
+    }
+  }
+  const result = oddEven(number);
+  console.log(result);
+}
