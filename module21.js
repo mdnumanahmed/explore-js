@@ -21,7 +21,14 @@ js-problems-part1-practice-tasks
 Task-1:
 Write a function to convert temperature from Celsius to Fahrenheit.
 */
-
+{
+  function celsiusToFahrenheit(cel) {
+    const fahrenheit = (9 / 5) * cel + 32;
+    return fahrenheit;
+  }
+  const fahrenheit = celsiusToFahrenheit(35);
+  console.log(fahrenheit);
+}
 /*
 Task-2:
 You are given an array of numbers. Count how many times the a number is repeated in the array.
