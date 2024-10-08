@@ -207,7 +207,16 @@ Output:
 
 [12, 98, 76, 46]
 */
-
+{
+  const numbers = [12, 98, 5, 41, 23, 78, 46];
+  const evenNumbers = [];
+  for (let number of numbers) {
+    if (number % 2 === 0) {
+      evenNumbers.push(number);
+    }
+  }
+  console.log(evenNumbers);
+}
 /*
 Task 3
 Use a for...of loop to concatenate all the elements of an array into a single string.
