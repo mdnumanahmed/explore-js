@@ -227,7 +227,19 @@ Output:
 
 'TomTimTinTik'
 */
+{
+  // Using join method without loop
+  var stringArray = ["Tom", "Tim", "Tin", "Tik"];
+  let single = stringArray.join("");
+  console.log(single);
 
+  // Using loop
+  let singleString = "";
+  for (let string of stringArray) {
+    singleString += string;
+  }
+  console.log(singleString);
+}
 /*
 Task 4 (Hard)
 Reverse the words of a sentence. Only the position of the word will be reversed. check out the output
