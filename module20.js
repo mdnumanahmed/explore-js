@@ -3,7 +3,13 @@ Simple function Related Practice Tasks
 Task-1
 Take four parameters. Multiply the four numbers and then return the result
  */
-
+{
+  function multiply(num1, num2, num3, num4) {
+    return num1 * num2 * num3 * num4;
+  }
+  const result = multiply(5, 6, 7, 8);
+  console.log(result);
+}
 /*  
 Task-2
 Take a number if the number is odd multiply it by 2 and return the result. If the number is even divide it by two and return the result.
