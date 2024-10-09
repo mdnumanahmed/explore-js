@@ -48,12 +48,57 @@ find: 25
 
 output: 0
 */
-
+{
+  const numbers = [5, 6, 11, 12, 98, 5];
+  function countRepeat(numbers, value) {
+    let count = 0;
+    for (const item of numbers) {
+      if (item === value) {
+        count++;
+      }
+    }
+    return count;
+  }
+  const result = countRepeat(numbers, 25);
+  console.log(result);
+}
+{
+  // Not accucate
+  //   const numbers = [5, 6, 11, 12, 98, 5];
+  //   function countRepeat(numbers) {
+  //     let count = [];
+  //     // let repeated = 0;
+  //     for (const number of numbers) {
+  //       if (number === numbers[number]) {
+  //         count.push(number);
+  //         // repeated++;
+  //       }
+  //     }
+  //     // console.log(repeated);
+  //     return count.length;
+  //   }
+  //   const result = countRepeat(numbers);
+  //   console.log(result);
+}
 /*
 Task-3:
 Write a function to count the number of vowels in a string.
 */
-
+{
+  const str = "Write a function to count the number of vowels in a string";
+  function countVowel(str) {
+    let vowel = "aeiou";
+    let count = 0;
+    for (const letter of str) {
+      if (vowel.split("").includes(letter)) {
+        count++;
+      }
+    }
+    return count;
+  }
+  const result = countVowel(str);
+  console.log(result);
+}
 /*
 Task-4:
 Write a function to find the longest word in a given string.
@@ -62,7 +107,21 @@ sample-input: I am learning Programming to become a programmer
 
 sample-output: Programming
 */
-
+{
+  const str = "I am learning Programming to become a programmer";
+  function longestWord(str) {
+    let wordsArray = str.split(" ");
+    let longest = "";
+    for (const word of wordsArray) {
+      if (word.length > longest.length) {
+        longest = word;
+      }
+    }
+    return longest;
+  }
+  const result = longestWord(str);
+  console.log(result);
+}
 /*
 Task-5:
 Generate a random number between 10 to 20.
