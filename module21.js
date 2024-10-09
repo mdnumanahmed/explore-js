@@ -126,3 +126,12 @@ sample-output: Programming
 Task-5:
 Generate a random number between 10 to 20.
  */
+{
+  // min and max (both included) 10 - 20
+  function generateRandomNumber(min, max) {
+    const rand = Math.floor(Math.random() * (max - min + 1)) + min;
+    return rand;
+  }
+  const randNumber = generateRandomNumber(10, 20);
+  console.log(randNumber);
+}
