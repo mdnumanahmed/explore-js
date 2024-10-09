@@ -38,7 +38,20 @@ Task -2:
 Find the friend with the smallest name.
 const heights2 = ['rahim', 'robin', 'rafi', 'ron', 'rashed'];
 */
-
+{
+  const friends = ["rahim", "robin", "rafi", "ron", "rashed"];
+  function smallestName(friends) {
+    let smallName = friends[0];
+    for (const friend of friends) {
+      if (friend.length < smallName.length) {
+        smallName = friend;
+      }
+    }
+    return smallName;
+  }
+  const result = smallestName(friends);
+  console.log(result);
+}
 /*
 Task-3:
 Your task is to calculate the total budget required to buy electronics:
