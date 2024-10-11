@@ -3,7 +3,238 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Geometry Genious</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@4.12.13/dist/full.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
   </head>
-  <body></body>
+  <body>
+    <!-- Header Area -->
+    <header
+      class="container mx-auto flex items-center justify-between p-8 bg-blue-200 rounded-md mb-4"
+    >
+      <div>
+        <h1 class="text-4xl font-bold">Interactive</h1>
+        <h3 class="text-xl text-gray-800">Geometry Genius</h3>
+      </div>
+      <div>
+        <button>Blog</button>
+      </div>
+    </header>
+    <main class="container mx-auto">
+      <!-- Shapes Card container -->
+      <section class="flex flex-col md:flex-row">
+        <div
+          class="flex-1 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
+        >
+          <!-- Single card -->
+          <div class="card bg-base-100 w-96 shadow-xl">
+            <figure>
+              <img src="./images/triangle.png" alt="Triangle" />
+            </figure>
+            <div class="card-body mx-auto text-center">
+              <h2 class="text-2xl font-bold">Triangle</h2>
+              <p class="text-xl">Area (A) = 0.5 x b x h</p>
+              <div class="flex space-x-3 items-center mb-4 text-xl">
+                <input
+                  class="w-24 bg-gray-300 p-2 placeholder-slate-800"
+                  type="text"
+                  name=""
+                  id="triangle-base"
+                  placeholder="b"
+                />
+                <span>cm</span>
+                <input
+                  class="w-24 text-xl bg-gray-300 p-2 placeholder-slate-800"
+                  type="text"
+                  name=""
+                  id="triangle-height"
+                  placeholder="h"
+                />
+                <span>cm</span>
+              </div>
+              <div>
+                <p>
+                  Triangle Area: <span id="triangle-area"></span>
+                  <span>cm<sup>2</sup></span>
+                </p>
+              </div>
+              <div class="card-actions justify-center">
+                <button
+                  onclick="calculateTriangleArea()"
+                  class="btn btn-primary w-full"
+                >
+                  Calculate
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Single card -->
+          <div class="card bg-base-100 w-96 shadow-xl">
+            <figure>
+              <img src="./images/triangle.png" alt="Triangle" />
+            </figure>
+            <div class="card-body mx-auto text-center">
+              <h2 class="text-2xl font-bold">Triangle</h2>
+              <p>Area (A) = 0.5 x b x h</p>
+              <div class="flex space-x-3 items-center mb-4">
+                <input
+                  class="w-24 bg-gray-300 p-2 placeholder-slate-800"
+                  type="text"
+                  name=""
+                  id=""
+                  placeholder="b"
+                />
+                <span>cm</span>
+                <input
+                  class="w-24 bg-gray-300 p-2 placeholder-slate-800"
+                  type="text"
+                  name=""
+                  id=""
+                  placeholder="h"
+                />
+                <span>cm</span>
+              </div>
+              <div class="card-actions justify-center">
+                <button class="btn btn-primary w-full">Calculate</button>
+              </div>
+            </div>
+          </div>
+          <!-- Single card -->
+          <div class="card bg-base-100 w-96 shadow-xl">
+            <figure>
+              <img src="./images/triangle.png" alt="Triangle" />
+            </figure>
+            <div class="card-body mx-auto text-center">
+              <h2 class="text-2xl font-bold">Triangle</h2>
+              <p>Area (A) = 0.5 x b x h</p>
+              <div class="flex space-x-3 items-center mb-4">
+                <input
+                  class="w-24 bg-gray-300 p-2 placeholder-slate-800"
+                  type="text"
+                  name=""
+                  id=""
+                  placeholder="b"
+                />
+                <span>cm</span>
+                <input
+                  class="w-24 bg-gray-300 p-2 placeholder-slate-800"
+                  type="text"
+                  name=""
+                  id=""
+                  placeholder="h"
+                />
+                <span>cm</span>
+              </div>
+              <div class="card-actions justify-center">
+                <button class="btn btn-primary w-full">Calculate</button>
+              </div>
+            </div>
+          </div>
+          <!-- Single card -->
+          <div class="card bg-base-100 w-96 shadow-xl">
+            <figure>
+              <img src="./images/triangle.png" alt="Triangle" />
+            </figure>
+            <div class="card-body mx-auto text-center">
+              <h2 class="text-2xl font-bold">Triangle</h2>
+              <p>Area (A) = 0.5 x b x h</p>
+              <div class="flex space-x-3 items-center mb-4">
+                <input
+                  class="w-24 bg-gray-300 p-2 placeholder-slate-800"
+                  type="text"
+                  name=""
+                  id=""
+                  placeholder="b"
+                />
+                <span>cm</span>
+                <input
+                  class="w-24 bg-gray-300 p-2 placeholder-slate-800"
+                  type="text"
+                  name=""
+                  id=""
+                  placeholder="h"
+                />
+                <span>cm</span>
+              </div>
+              <div class="card-actions justify-center">
+                <button class="btn btn-primary w-full">Calculate</button>
+              </div>
+            </div>
+          </div>
+          <!-- Single card -->
+          <div class="card bg-base-100 w-96 shadow-xl">
+            <figure>
+              <img src="./images/triangle.png" alt="Triangle" />
+            </figure>
+            <div class="card-body mx-auto text-center">
+              <h2 class="text-2xl font-bold">Triangle</h2>
+              <p>Area (A) = 0.5 x b x h</p>
+              <div class="flex space-x-3 items-center mb-4">
+                <input
+                  class="w-24 bg-gray-300 p-2 placeholder-slate-800"
+                  type="text"
+                  name=""
+                  id=""
+                  placeholder="b"
+                />
+                <span>cm</span>
+                <input
+                  class="w-24 bg-gray-300 p-2 placeholder-slate-800"
+                  type="text"
+                  name=""
+                  id=""
+                  placeholder="h"
+                />
+                <span>cm</span>
+              </div>
+              <div class="card-actions justify-center">
+                <button class="btn btn-primary w-full">Calculate</button>
+              </div>
+            </div>
+          </div>
+          <!-- Single card -->
+          <div class="card bg-base-100 w-96 shadow-xl">
+            <figure>
+              <img src="./images/triangle.png" alt="Triangle" />
+            </figure>
+            <div class="card-body mx-auto text-center">
+              <h2 class="text-2xl font-bold">Triangle</h2>
+              <p>Area (A) = 0.5 x b x h</p>
+              <div class="flex space-x-3 items-center mb-4">
+                <input
+                  class="w-24 bg-gray-300 p-2 placeholder-slate-800"
+                  type="text"
+                  name=""
+                  id=""
+                  placeholder="b"
+                />
+                <span>cm</span>
+                <input
+                  class="w-24 bg-gray-300 p-2 placeholder-slate-800"
+                  type="text"
+                  name=""
+                  id=""
+                  placeholder="h"
+                />
+                <span>cm</span>
+              </div>
+              <div class="card-actions justify-center">
+                <button class="btn btn-primary w-full">Calculate</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Area calculation display -->
+        <div class="border border-gray-400 p-5">
+          <h3 class="text-3xl">Area Calculation</h3>
+        </div>
+      </section>
+    </main>
+    <script src="scripts/triangle.js"></script>
+  </body>
 </html>
