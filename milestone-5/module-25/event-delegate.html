@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event Delegate Explore</title>
+  </head>
+  <body>
+    <header>Event Delegate Example</header>
+    <section id="list-container">
+      <h1>Popular Tourist Places</h1>
+      <ul id="list-ul">
+        <li class="item">Lorem, ipsum dolor.</li>
+        <li class="item">Eveniet, distinctio necessitatibus.</li>
+        <li class="item">Exercitationem, eos? Voluptatibus!</li>
+        <li class="item">Eius, illum maiores?</li>
+        <li class="item">Non, repudiandae error!</li>
+        <li class="item">Consectetur, quo minus!</li>
+      </ul>
+    </section>
+
+    <button id="add-btn">Add new item</button>
+
+    <script>
+      // without event delegate
+      //   const liItems = document.getElementsByClassName("item");
+      //   for (const item of liItems) {
+      //     item.addEventListener("click", function (event) {
+      //       event.target.remove();
+      //     });
+      //   }
+
+      // with event delegate to parentNode
+      const listUl = document.getElementById("list-ul");
+      listUl.addEventListener("click", function (event) {
+        console.log(event.target.parentNode);
+        event.target.parentNode.removeChild(event.target);
+      });
+
+      document.getElementById("add-btn").addEventListener("click", function () {
+        const li = document.createElement("li");
+        li.classList.add("item");
+        li.innerText = "This is Dynamically added item";
+        // const listUl = document.getElementById("list-ul");
+        listUl.appendChild(li);
+      });
+    </script>
+  </body>
+</html>
