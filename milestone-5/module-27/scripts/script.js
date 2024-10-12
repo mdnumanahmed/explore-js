@@ -5,20 +5,30 @@ function handleKeyUpEvent(event) {
   const expectedLetter = currentLetter.toLowerCase();
 
   if (playerPressed.toLowerCase() === expectedLetter.toLowerCase()) {
-    const currentScoreElement = document.getElementById("current-score");
-    const currentScoreText = currentScoreElement.innerText;
-    const currentScore = parseInt(currentScoreText);
+    const currentScore = getTextElementValueById("current-score");
     const newScore = currentScore + 1;
-    currentScoreElement.innerText = newScore;
+    setTextElementValueById("current-score", newScore);
+
+    // ============= ==============================
+    // const currentScoreElement = document.getElementById("current-score");
+    // const currentScoreText = currentScoreElement.innerText;
+    // const currentScore = parseInt(currentScoreText);
+    // const newScore = currentScore + 1;
+    // currentScoreElement.innerText = newScore;
 
     removeBackgroundColorById(expectedLetter);
     continueGame();
   } else {
-    const currentLifeElement = document.getElementById("current-life");
-    const currentLifeText = currentLifeElement.innerText;
-    const currentLife = parseInt(currentLifeText);
+    const currentLife = getTextElementValueById("current-life");
     const newLife = currentLife - 1;
-    currentLifeElement.innerText = newLife;
+    setTextElementValueById("current-life", newLife);
+
+    //   ===================================================
+    // const currentLifeElement = document.getElementById("current-life");
+    // const currentLifeText = currentLifeElement.innerText;
+    // const currentLife = parseInt(currentLifeText);
+    // const newLife = currentLife - 1;
+    // currentLifeElement.innerText = newLife;
   }
 }
 
