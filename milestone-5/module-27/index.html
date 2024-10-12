@@ -19,17 +19,20 @@
       class="min-h-screen bg-[#010313] bg-[url(images/background.png)] bg-no-repeat bg-center"
     >
       <!-- Home Section -->
-      <section class="flex justify-center items-center min-h-screen hidden">
+      <section
+        id="home-screen"
+        class="flex justify-center items-center min-h-screen"
+      >
         <div class="text-white text-center space-y-10">
           <h1 class="font-anton text-9xl">ALPHABET CLASH</h1>
           <h3 class="font-poppins font-medium text-2xl">
             Unleash Your Keyboard Kung Fu : Press “Enter” to Play
           </h3>
-          <button class="btn">Play Now</button>
+          <button onclick="play()" class="btn">Play Now</button>
         </div>
       </section>
       <!-- Playground Section -->
-      <section class="hidden">
+      <section id="play-ground" class="hidden">
         <div class="space-y-12">
           <!-- Screen section -->
           <!-- Hexadecimal color code for transparency github -->
@@ -45,7 +48,7 @@
                     Don't watch keyboard while playing...
                   </p>
                 </div>
-                <p class="mt-4">Y</p>
+                <p id="random-letter" class="mt-4">Y</p>
               </div>
             </div>
           </div>
@@ -117,6 +120,7 @@
         </div>
       </section>
     </main>
+    <script src="scripts/utilities.js"></script>
     <script src="scripts/script.js"></script>
   </body>
 </html>
