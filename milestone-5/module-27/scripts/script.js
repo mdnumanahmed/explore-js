@@ -20,8 +20,12 @@ function handleKeyUpEvent(event) {
     continueGame();
   } else {
     const currentLife = getTextElementValueById("current-life");
-    const newLife = currentLife - 1;
-    setTextElementValueById("current-life", newLife);
+    const updatedLife = currentLife - 1;
+    setTextElementValueById("current-life", updatedLife);
+
+    if (updatedLife === 0) {
+      gameOver();
+    }
 
     //   ===================================================
     // const currentLifeElement = document.getElementById("current-life");
@@ -44,7 +48,23 @@ function continueGame() {
 }
 
 function play() {
+  // hide everything show only playground
   hideElementById("home-screen");
+  hideElementById("final-score");
   showElementById("play-ground");
+
+  // reset life and score
+  setTextElementValueById("current-life", 5);
+  setTextElementValueById("current-score", 0);
+
   continueGame();
+}
+
+function gameOver() {
+  hideElementById("play-ground");
+  showElementById("final-score");
+
+  // get score from playground and set it to final score
+  const lastScore = getTextElementValueById("current-score");
+  setTextElementValueById("last-score", lastScore);
 }

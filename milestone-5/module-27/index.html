@@ -106,15 +106,16 @@
         </div>
       </section>
       <!-- Score Section -->
-      <section class="hidden">
+      <section id="final-score" class="hidden">
         <div class="flex justify-center items-center min-h-screen">
           <div
             class="text-white font-poppins bg-gradient-to-r from-purple-400 from-1% via-purple-600 via-30% to-purple-900 to-90% text-center p-11 rounded-2xl space-y-4"
           >
+            <h3 class="text-3xl">Game Over!</h3>
             <h1 class="text-6xl font-extrabold">
-              Score : <span class="font-semibold">14</span>
+              Score : <span id="last-score" class="font-semibold">14</span>
             </h1>
-            <button class="btn">Play Again</button>
+            <button onclick="play()" class="btn">Play Again</button>
             <p class="text-2xl font-medium">Practice will make you Pro</p>
           </div>
         </div>
