@@ -1,6 +1,11 @@
 function handleKeyUpEvent(event) {
   const playerPressed = event.key;
 
+  // Stop the game if press 'Esc'
+  if (playerPressed === "Escape") {
+    gameOver();
+  }
+
   const currentLetter = document.getElementById("current-alphabet").innerText;
   const expectedLetter = currentLetter.toLowerCase();
 
@@ -67,4 +72,8 @@ function gameOver() {
   // get score from playground and set it to final score
   const lastScore = getTextElementValueById("current-score");
   setTextElementValueById("last-score", lastScore);
+
+  // select current alphabet and remove background color
+  const currentAlphabet = getElementTextById("current-alphabet");
+  removeBackgroundColorById(currentAlphabet);
 }
