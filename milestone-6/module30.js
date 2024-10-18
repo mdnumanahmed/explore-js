@@ -45,3 +45,11 @@
   const result = squareIt(numbers);
   console.log(result);
 }
+
+// Problem Four
+{
+  const nums1 = [2, 3, 4, 5, 6, 200, 7];
+  const nums2 = [33, 22, 44, 55, 66, 77, 100];
+  const combineArrReturnMax = (nums1, nums2) => Math.max(...nums1, ...nums2);
+  console.log(combineArrReturnMax(nums1, nums2));
+}
