@@ -16,8 +16,6 @@ const displayPhones = (phones, isShowAll) => {
     ? (showMore.classList.remove("hidden"), (phones = phones.slice(0, 12)))
     : showMore.classList.add("hidden");
 
-  console.log(phones);
-
   phones.forEach((phone) => {
     const phoneCard = document.createElement("div");
     phoneCard.classList = `max-w-96 rounded-xl border shadow-xl p-4`;
@@ -39,9 +37,11 @@ const displayPhones = (phones, isShowAll) => {
       `;
     phonesContainer.appendChild(phoneCard);
   });
+  toggleSpinner(false);
 };
 
 const handleSearch = (isShowAll) => {
+  toggleSpinner(true);
   const searchText = document.getElementById("search-text");
   const value = searchText.value;
   loadPhones(value, isShowAll);
@@ -49,6 +49,15 @@ const handleSearch = (isShowAll) => {
 
 const showAllCard = () => {
   handleSearch(true);
+};
+
+const toggleSpinner = (isLoading) => {
+  const loadingSpinner = document.getElementById("loading-spinner");
+  if (isLoading) {
+    loadingSpinner.classList.remove("hidden");
+  } else {
+    loadingSpinner.classList.add("hidden");
+  }
 };
 
 loadPhones();
