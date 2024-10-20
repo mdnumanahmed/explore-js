@@ -53,32 +53,25 @@
                 clip-rule="evenodd"
               />
             </svg>
-            <input type="text" class="max-w-md" placeholder="Search" />
+            <input
+              id="search-text"
+              type="text"
+              class="max-w-md"
+              placeholder="Search"
+            />
           </label>
-          <button class="btn btn-primary">Search</button>
+          <button onclick="handleSearch()" class="btn btn-primary">
+            Search
+          </button>
         </div>
       </div>
     </section>
     <!-- Display Search Result  -->
     <section class="container max-w-6xl mx-auto">
-      <div>
-        <div class="max-w-96 rounded-xl border shadow-xl p-4">
-          <div class="bg-blue-50 p-12">
-            <img src="images/pngwing 1.png" alt="" class="" />
-          </div>
-          <div class="text-center space-y-4 p-3 mt-3">
-            <h4 class="font-poppins text-2xl font-bold">Iphone 13 Pro Max</h4>
-            <p>
-              There are many variations of passages of available, but the
-              majority have suffered
-            </p>
-            <p class="font-poppins text-2xl font-bold">$999</p>
-            <button class="btn bg-blue-600 text-white text-lg">
-              Show Details
-            </button>
-          </div>
-        </div>
-      </div>
+      <div
+        id="phones-container"
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+      ></div>
     </section>
     <!-- Footer Area -->
     <section class="container max-w-6xl bg-blue-50 mx-auto hidden">
