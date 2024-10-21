@@ -1,14 +1,18 @@
+// Global variable to store loaded data
+let loadedTools;
 // Funtion to Load all AI Tools from api
 const loadTools = async () => {
   const res = await fetch(`https://openapi.programming-hero.com/api/ai/tools`);
   const data = await res.json();
   const tools = data.data.tools;
+  loadedTools = data.data.tools;
   displayTools(tools);
 };
 
 // Function to display data in the UI
 const displayTools = (tools) => {
   const toolsContainer = document.getElementById("tools-container");
+  toolsContainer.textContent = "";
   tools.forEach((tool) => {
     // console.log(tool.features);
     const { image, features, name, published_in } = tool;
@@ -47,6 +51,14 @@ const displayTools = (tools) => {
       `;
     toolsContainer.appendChild(toolCard);
   });
+};
+
+// Fucntion to sort by date
+const sortByDate = () => {
+  const sortData = loadedTools.sort(function (a, b) {
+    return new Date(a.published_in) - new Date(b.published_in);
+  });
+  displayTools(sortData);
 };
 
 loadTools();
