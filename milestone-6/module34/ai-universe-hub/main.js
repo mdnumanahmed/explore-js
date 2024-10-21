@@ -1,18 +1,26 @@
 // Global variable to store loaded data
 let loadedTools;
 // Funtion to Load all AI Tools from api
-const loadTools = async () => {
+const loadTools = async (dataLimit = 6) => {
   const res = await fetch(`https://openapi.programming-hero.com/api/ai/tools`);
   const data = await res.json();
   const tools = data.data.tools;
   loadedTools = data.data.tools;
-  displayTools(tools);
+  displayTools(tools, dataLimit);
 };
 
+const showMoreBtn = document.getElementById("show-more");
 // Function to display data in the UI
-const displayTools = (tools) => {
+const displayTools = (tools, dataLimit) => {
   const toolsContainer = document.getElementById("tools-container");
   toolsContainer.textContent = "";
+
+  if (tools.length > 6 && dataLimit) {
+    tools = tools.slice(0, 6);
+    showMoreBtn.classList.remove("hidden");
+  } else {
+    showMoreBtn.classList.add("hidden");
+  }
   tools.forEach((tool) => {
     // console.log(tool.features);
     const { image, features, name, published_in } = tool;
@@ -60,5 +68,9 @@ const sortByDate = () => {
   });
   displayTools(sortData);
 };
+
+showMoreBtn.addEventListener("click", function () {
+  loadTools(false);
+});
 
 loadTools();
