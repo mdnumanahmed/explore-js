@@ -1,4 +1,4 @@
-const loadPhones = async (searchText, isShowAll) => {
+const loadPhones = async (searchText = "13", isShowAll) => {
   const res = await fetch(
     `https://openapi.programming-hero.com/api/phones?search=${searchText}`
   );
@@ -30,7 +30,7 @@ const displayPhones = (phones, isShowAll) => {
             majority have suffered
         </p>
         <p class="font-poppins text-2xl font-bold">Brand: ${phone.brand}</p>
-        <button class="btn bg-blue-600 text-white text-lg">
+        <button onclick="showDetails('${phone.slug}')" class="btn bg-blue-600 text-white text-lg">
             Show Details
         </button>
         </div>
@@ -58,6 +58,35 @@ const toggleSpinner = (isLoading) => {
   } else {
     loadingSpinner.classList.add("hidden");
   }
+};
+
+const showDetails = async (id) => {
+  const res = await fetch(
+    `https://openapi.programming-hero.com/api/phone/${id}`
+  );
+  const data = await res.json();
+  console.log(data.data);
+  showDetailsModal(data.data);
+};
+
+const showDetailsModal = (phone) => {
+  const showDetailsDiv = document.getElementById("show_details_modal");
+  showDetailsDiv.innerHTML = `
+  <div class="modal-box">
+      <div class="bg-blue-50 p-12">
+        <img src="${phone.image}" alt="" class="" />
+        </div>
+        <div class="text-center space-y-4 p-3 mt-3">
+        <h4 class="font-poppins text-2xl font-bold">${phone.phone_name}</h4>
+        <form method="dialog">
+          <!-- if there is a button in form, it will close the modal -->
+          <button class="btn">Close</button>
+        </form>
+      </div>
+    </div>
+      `;
+
+  show_details_modal.showModal();
 };
 
 loadPhones();
