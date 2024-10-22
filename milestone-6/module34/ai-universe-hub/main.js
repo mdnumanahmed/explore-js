@@ -77,10 +77,13 @@ const loadToolDetails = async (id) => {
   );
   const data = await res.json();
   const tool = data.data;
+
+  // to show tool details call the function
   showToolDetails(tool);
   show_details_modal.showModal();
 };
 
+// Set Details Data on the modal
 const showToolDetails = (tool) => {
   console.log(tool);
   const {
@@ -92,56 +95,89 @@ const showToolDetails = (tool) => {
     accuracy,
     integrations,
   } = tool;
+
+  // Show Features inside Modal
+  const showFeatures = (features) => {
+    let text = "";
+    for (const feature in features) {
+      text += `<li>${features[feature]?.feature_name}</li>`;
+    }
+    return text;
+  };
+
+  // Show Integrations inside Modal
+  const showIntegrations = (integrations) => {
+    let text = "";
+    for (const intg of integrations) {
+      text += `<li>${intg}</li>`;
+    }
+    return text;
+  };
+  // select Modal Container from the DOM and set data
   const showDetailModal = document.getElementById("show_details_modal");
   showDetailModal.innerHTML = `
-  <div class="modal-box !max-w-screen-lg overflow-y-visible">
+  <div class="modal-box !max-w-screen-lg p-20 overflow-y-visible">
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
-      <div class="bg-pink-50 rounded-xl shadow-lg">
-        <h3 class="text-lg font-bold">
-          ${description}
+      <div class="bg-pink-50 rounded-xl p-7 shadow-lg">
+        <h3 class="text-lg font-semibold mb-4 work-sans">
+          ${description ? description : "No description available"}
         </h3>
-        <div class="flex gap-6">
-          <p
-            class="text-lg font-semibold bg-white p-5 rounded-lg text-green-600"
-          >
-            $10/month Basic
-          </p>
-          <p
-            class="text-lg font-semibold bg-white p-5 rounded-lg text-orange-600"
-          >
-            $50/month Pro
-          </p>
-          <p
-            class="text-lg font-semibold bg-white p-5 rounded-lg text-red-600"
-          >
-            Contact us Enterprise
-          </p>
+        <div class="flex gap-3">
+          ${
+            pricing
+              ? pricing?.map(
+                  (price) =>
+                    `<p class="text-base text-center font-semibold bg-white p-3 rounded-lg text-green-600">
+              ${price?.price.split(" ").slice(0, 2).join(" ")} ${price?.plan}
+            </p>`
+                )
+              : `<p class="text-base mx-auto text-center font-semibold bg-white p-3 rounded-lg text-green-600">
+              Pricing Data not available
+            </p>`
+          }          
         </div>
-        <div class="grid grid-cols-2 gap-5">
-          <div>
+        <div class="flex gap-5">
+          <div class="grow">
             <h3 class="text-2xl font-semibold work-snas my-4">Features</h3>
-            <ul>
-              <li>Customizable responses</li>
-              <li>Multilingual support</li>
-              <li>Seamless integration</li>
+            <ul class="list-disc pl-4">
+            ${features ? showFeatures(features) : "Data not found"}
             </ul>
           </div>
-          <div>
+          <div class="grow-0">
             <h3 class="text-2xl font-semibold work-snas my-4">Integrations</h3>
-            <ul>
-              <li>Customizable responses</li>
-              <li>Multilingual support</li>
-              <li>Seamless integration</li>
+            <ul class="list-disc pl-4">
+            
+            ${integrations ? showIntegrations(integrations) : "Data not found"}
             </ul>
           </div>
         </div>
       </div>
-      <div class="bg-pink-50 rounded-xl shadow-lg">
-        <img src="${image_link[0]}" alt="" />
-        <h3 class="text-lg font-bold">${input_output_examples[0]?.input}</h3>
+      <div class="bg-pink-50 rounded-xl p-7 shadow-lg">
+        <div class="relative">
+        <img src="${
+          image_link[0]
+            ? image_link[0]
+            : "https://image-placeholder.com/images/actual-size/1920x1080.png"
+        }" alt="" class="rounded-xl" />
+        <span class="${
+          accuracy.score ? "inline-block" : "hidden"
+        } px-4 py-2 work-sans font-semibold bg-[#EB5757] text-white rounded-lg absolute top-2 right-2">
+        ${accuracy?.score * 100 + "% accuracy"}</span>
+        </div>
+        <div class="text-center mt-3">
+        <h3 class="text-lg font-bold">${
+          input_output_examples
+            ? input_output_examples[0]?.input
+            : "No input data found"
+        }</h3>
         <p class="py-4">
-         ${input_output_examples[0]?.output}
+         ${
+           input_output_examples
+             ? input_output_examples[0]?.output
+             : "No output data found"
+         }
         </p>
+        </div>
       </div>
     </div>
     <div class="modal-action absolute -top-10 -right-4">

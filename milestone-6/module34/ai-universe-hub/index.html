@@ -37,79 +37,10 @@
           Show More
         </button>
       </div>
+      <dialog id="show_details_modal" class="modal relative"></dialog>
     </section>
     <!-- Modal -->
-    <!-- Open the modal using ID.showModal() method -->
-    <!-- <button class="btn" onclick="show_details_modal.showModal()"> -->
-      open modal
-    </button>
-    <dialog
-      id="show_details_modal"
-      class="modal relative"
-    >
-      <div class="modal-box !max-w-screen-md overflow-y-visible">
-        <div class="flex gap-5">
-          <div class="bg-pink-50 rounded-xl shadow-lg">
-            <h3 class="text-lg font-bold">
-              ChatGPT is an AI-powered chatbot platform that uses OpenAI's GPT
-              technology to simulate human conversation.!
-            </h3>
-            <div class="flex gap-6">
-              <p
-                class="text-lg font-semibold bg-white p-5 rounded-lg text-green-600"
-              >
-                $10/month Basic
-              </p>
-              <p
-                class="text-lg font-semibold bg-white p-5 rounded-lg text-orange-600"
-              >
-                $50/month Pro
-              </p>
-              <p
-                class="text-lg font-semibold bg-white p-5 rounded-lg text-red-600"
-              >
-                Contact us Enterprise
-              </p>
-            </div>
-            <div class="flex gap-5">
-              <div>
-                <h3 class="text-2xl font-semibold work-snas my-4">Features</h3>
-                <ul>
-                  <li>Customizable responses</li>
-                  <li>Multilingual support</li>
-                  <li>Seamless integration</li>
-                </ul>
-              </div>
-              <div>
-                <h3 class="text-2xl font-semibold work-snas my-4">Features</h3>
-                <ul>
-                  <li>Customizable responses</li>
-                  <li>Multilingual support</li>
-                  <li>Seamless integration</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="bg-pink-50 rounded-xl shadow-lg">
-            <img src="" alt="" />
-            <h3 class="text-lg font-bold">Hi, how are you doing today?!</h3>
-            <p class="py-4">
-              I'm doing well, thank you for asking. How can I assist you today?
-            </p>
-          </div>
-        </div>
-        <div class="modal-action absolute -top-10 -right-4">
-          <form method="dialog">
-            <!-- if there is a button in form, it will close the modal -->
-            <button
-              class="text-white w-10 h-10 bg-red-500 rounded-full z-[9999]"
-            >
-              X
-            </button>
-          </form>
-        </div>
-      </div>
-    </dialog>
+
     <script src="main.js"></script>
   </body>
 </html>
